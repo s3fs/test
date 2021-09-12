@@ -1,4 +1,17 @@
-const noteReducer = (state = [], action) => {
+const initState = [
+  {
+    content: 'reducer defines redux store\'s work',
+    important: true,
+    id: 1
+  },
+  {
+    content: 'store state can contain anyyy data',
+    important: true,
+    id: 2
+  }
+]
+
+const noteReducer = (state = initState, action) => {
   switch (action.type) {
     case 'NEW_NOTE':
       return [...state, action.data]
