@@ -1,17 +1,4 @@
-const initState = [
-  {
-    content: 'reducer defines redux store\'s work',
-    important: true,
-    id: 1
-  },
-  {
-    content: 'store state can contain anyyy data',
-    important: true,
-    id: 2
-  }
-]
-
-const noteReducer = (state = initState, action) => {
+const noteReducer = (state = [], action) => {
   switch (action.type) {
     case 'NEW_NOTE':
       return [...state, action.data]
@@ -23,21 +10,24 @@ const noteReducer = (state = initState, action) => {
         important: !toChange.important
       }
       return state.map(n => n.id !== id ? n : changedNote)
+    case 'INIT_NOTES':
+      return action.data
     default:
       return state
   }
 }
 
-const genId = () => Number((Math.random() * 1000000).toFixed(0))
+export const initNotes = (notes) => {
+  return {
+    type: 'INIT_NOTES',
+    data: notes
+  }
+}
 
-const createNote = (content) => {
+const createNote = (data) => {
   return {
     type: 'NEW_NOTE',
-    data: {
-      content,
-      important: false,
-      id: genId()
-    }
+    data
   }
 }
 
