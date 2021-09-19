@@ -18,11 +18,7 @@ const NewNote = (props) => {
   )
 }
 
-const mapDispatchToProps = {
-  createNote
-}
-
 export default connect(
   null,
-  mapDispatchToProps
+  { createNote }
 )(NewNote)
