@@ -1,3 +1,11 @@
+/**
+ * useful hook resources:
+ * https://github.com/rehooks/awesome-react-hooks
+ * https://usehooks.com/
+ * https://overreacted.io/why-do-hooks-rely-on-call-order/
+ * 
+ */
+
 import React, { useState } from "react"
 
 const useField = (type) => {
@@ -23,25 +31,13 @@ const App = () => {
     <div>
       <form>
         name: 
-        <input
-          type={name.type}
-          value={name.value}
-          onChange={name.onChange} 
-        /> 
+        <input {...name} /> 
         <br/> 
         birthdate:
-        <input
-          type={bd.type}
-          value={bd.value}
-          onChange={bd.onChange}
-        />
+        <input {...bd} />
         <br /> 
         height:
-        <input
-          type={height.type}
-          value={height.value}
-          onChange={height.onChange}
-        />
+        <input {...height} />
       </form>
       <h2>
         {name.value} / {bd.value} / {height.value} 
