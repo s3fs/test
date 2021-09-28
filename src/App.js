@@ -1,49 +1,17 @@
-/**
- * useful hook resources:
- * https://github.com/rehooks/awesome-react-hooks
- * https://usehooks.com/
- * https://overreacted.io/why-do-hooks-rely-on-call-order/
- * 
- */
+import React from 'react'
 
-import React, { useState } from "react"
-
-const useField = (type) => {
-  const [value, setValue] = useState('')
-
-  const onChange = (ev) => {
-    setValue(ev.target.value)
+class App extends React.Component {
+  constructor(props) {
+    super(props)
   }
 
-  return {
-    type,
-    value,
-    onChange
+  render() {
+    return (
+      <div>
+        <h1>Anecdote of tha tag</h1>
+      </div>
+    )
   }
-}
-
-const App = () => {
-  const name = useField('text')
-  const bd = useField('date')
-  const height = useField('number')
-
-  return (
-    <div>
-      <form>
-        name: 
-        <input {...name} /> 
-        <br/> 
-        birthdate:
-        <input {...bd} />
-        <br /> 
-        height:
-        <input {...height} />
-      </form>
-      <h2>
-        {name.value} / {bd.value} / {height.value} 
-      </h2>
-    </div>
-  )
 }
 
 export default App
